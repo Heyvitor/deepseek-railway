@@ -1,9 +1,11 @@
 # Dockerfile
 FROM ubuntu:22.04
 
-# Instala dependências básicas
+# Instala dependências básicas e ferramentas de detecção de GPU
 RUN apt-get update && apt-get install -y \
     curl \
+    lspci \
+    lshw \
     && rm -rf /var/lib/apt/lists/*
 
 # Instala o Ollama

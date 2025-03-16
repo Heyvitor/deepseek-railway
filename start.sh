@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Define o número de threads (ajuste conforme o número de CPUs)
+export OLLAMA_NUM_THREADS=10
+
 # Inicia o Ollama em segundo plano
 ollama serve &
 
