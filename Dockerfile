@@ -9,15 +9,12 @@ RUN apt-get update && apt-get install -y \
 # Instala o Ollama
 RUN curl -fsSL https://ollama.ai/install.sh | sh
 
-# Baixa o modelo DeepSeek
-RUN ollama pull deepseek-r1:7b
+# Copia o script de inicialização
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
 # Expõe a porta padrão do Ollama
 EXPOSE 11434
 
-# Script de inicialização
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
-
-# Comando para rodar o Ollama
+# Comando para rodar o script de inicialização
 CMD ["/start.sh"]

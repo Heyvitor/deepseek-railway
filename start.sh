@@ -4,10 +4,19 @@
 ollama serve &
 
 # Aguarda o Ollama iniciar
-sleep 5
+echo "Aguardando o Ollama iniciar..."
+sleep 10
 
-# Carrega o modelo DeepSeek
-ollama run deepseek-r1:7b
+# Baixa o modelo DeepSeek
+echo "Baixando o modelo deepseek-r1:7b..."
+ollama pull deepseek-r1:7b
+
+# Reinicia o Ollama para garantir que o modelo esteja carregado
+echo "Reiniciando o Ollama..."
+pkill ollama
+sleep 5
+ollama serve &
 
 # Mantém o container rodando
+echo "Ollama está pronto para uso!"
 tail -f /dev/null

@@ -7,7 +7,7 @@ services:
       resources:
         limits:
           cpus: '10'        # Usa todos os 10 núcleos
-          memory: 20G       # Aloca 30GB (deixa 2GB para o SO)
+          memory: 30G       # Aloca 30GB (deixa 2GB para o SO)
     ports:
       - "11434:11434"
     volumes:
