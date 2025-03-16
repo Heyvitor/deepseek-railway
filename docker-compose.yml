@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  ollama:
+    build: .
+    container_name: ollama-deepseek
+    deploy:
+      resources:
+        limits:
+          cpus: '10'        # Usa todos os 10 núcleos
+          memory: 20G       # Aloca 30GB (deixa 2GB para o SO)
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    environment:
+      - OLLAMA_NUM_PARALLEL=10  # Processamento paralelo máximo
+      - OLLAMA_MAX_LOADED_MODELS=2  # Otimiza memória
+    # Configuração avançada para CPU
+    sysctls:
+      - net.core.somaxconn=1024
+      - vm.overcommit_memory=1
+
+volumes:
+  ollama-data:

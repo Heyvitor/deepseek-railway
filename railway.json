@@ -1,0 +1,21 @@
+{
+    "build": {
+      "builder": "NIXPACKS",
+      "config": {
+        "startCommand": "docker-compose up"
+      }
+    },
+    "deploy": {
+      "restartPolicy": {
+        "type": "always"
+      },
+      "resources": {
+        "cpu": 10000,
+        "memory": 20720
+      }
+    },
+    "env": {
+      "OLLAMA_NUM_PARALLEL": "10",
+      "OLLAMA_MAX_LOADED_MODELS": "2"
+    }
+  }
