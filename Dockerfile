@@ -14,7 +14,7 @@ COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
 # Expõe a porta padrão do Ollama
-EXPOSE 11434
+EXPOSE 11434:11434
 
 # Comando para rodar o script de inicialização
 CMD ["/start.sh"]
